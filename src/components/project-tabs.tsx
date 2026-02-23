@@ -28,7 +28,7 @@ export function ProjectTabs({ onChange }: { onChange?: (tab: string) => void }) 
           </button>
         ))}
       </div>
-      <button className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:scale-105 active:scale-95">
+      <button className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
         <PlusSignIcon size={16} strokeWidth={2.5} />
         New project
       </button>
