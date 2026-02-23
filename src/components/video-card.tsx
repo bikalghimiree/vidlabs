@@ -1,33 +1,43 @@
 import Image from "next/image";
-import { PlayIcon } from "hugeicons-react";
 
 interface VideoCardProps {
   title: string;
   thumbnail: string;
-  date: string;
-  prompt: string;
+  createdAt: Date;
 }
 
-export function VideoCard({ title, thumbnail, date, prompt }: VideoCardProps) {
+function timeAgo(date: Date): string {
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+
+  if (seconds < 60) return "just now";
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 30) return `${days} day${days === 1 ? "" : "s"} ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} month${months === 1 ? "" : "s"} ago`;
+  const years = Math.floor(months / 12);
+  return `${years} year${years === 1 ? "" : "s"} ago`;
+}
+
+export function VideoCard({ title, thumbnail, createdAt }: VideoCardProps) {
   return (
-    <div className="group cursor-pointer overflow-hidden rounded-xl bg-card transition-colors hover:bg-card/80">
-      <div className="relative aspect-video overflow-hidden">
+    <div className="cursor-pointer overflow-hidden rounded-xl bg-card border border-white/[0.06] p-2.5">
+      <div className="relative aspect-video overflow-hidden rounded-lg">
         <Image
           src={thumbnail}
           alt={title}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover"
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
-          <div className="scale-0 transition-transform group-hover:scale-100">
-            <PlayIcon size={40} color="white" fill="white" strokeWidth={0} />
-          </div>
-        </div>
       </div>
-      <div className="p-3">
+      <div className="px-1 pt-2.5 pb-1">
         <p className="truncate text-sm font-medium">{title}</p>
-        <p className="mt-1 truncate text-xs text-muted-foreground">{prompt}</p>
-        <p className="mt-1 text-xs text-muted-foreground/60">{date}</p>
+        <p className="mt-1 text-xs text-muted-foreground/60">
+          Created {timeAgo(createdAt)}
+        </p>
       </div>
     </div>
   );

@@ -85,7 +85,7 @@
 .dark {
   --background: #0a0a0a;
   --foreground: #edecec;
-  --card: #111111;
+  --card: #161616;
   --card-foreground: #edecec;
   --popover: #111111;
   --popover-foreground: #edecec;
@@ -122,6 +122,12 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  button, a {
+    transition: transform 0.15s ease;
+  }
+  button:active, a:active {
+    transform: scale(0.97);
   }
 }
 

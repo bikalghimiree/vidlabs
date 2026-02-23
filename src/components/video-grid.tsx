@@ -4,38 +4,32 @@ const MOCK_VIDEOS = [
   {
     title: "Dragon's Reign",
     thumbnail: "/mocks/dragon.png",
-    date: "Feb 22 · 15:31",
-    prompt: "A majestic dragon breathing blue fire over a medieval castle at sunset",
+    createdAt: new Date(Date.now() - 1000 * 60 * 6),        // 6 minutes ago
   },
   {
     title: "Aurora Spacewalk",
     thumbnail: "/mocks/astronaut.png",
-    date: "Feb 21 · 09:14",
-    prompt: "An astronaut floating above Earth with northern lights reflecting off the visor",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 3),   // 3 hours ago
   },
   {
     title: "Neon Rain: Tokyo 2077",
     thumbnail: "/mocks/cyberpunk.png",
-    date: "Feb 20 · 22:45",
-    prompt: "A woman walking through a neon-lit cyberpunk Tokyo street at night with rain",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2), // 2 days ago
   },
   {
     title: "Dragon's Reign II",
     thumbnail: "/mocks/dragon.png",
-    date: "Feb 19 · 11:03",
-    prompt: "Dragon sequel — dramatic aerial battle above the burning castle",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5), // 5 days ago
   },
   {
     title: "Deep Space",
     thumbnail: "/mocks/astronaut.png",
-    date: "Feb 18 · 16:22",
-    prompt: "Astronaut drifting into deep space with stars and nebula in background",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 14), // 2 weeks ago
   },
   {
     title: "Shibuya Nights",
     thumbnail: "/mocks/cyberpunk.png",
-    date: "Feb 17 · 03:58",
-    prompt: "Rainy night at Shibuya crossing with holographic billboards",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 45), // ~2 months ago
   },
 ];
 
